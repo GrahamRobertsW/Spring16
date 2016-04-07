@@ -1,0 +1,71 @@
+\documentclass[11pt]{article}
+\usepackage{enumerate}
+\usepackage{amsfonts}
+\usepackage{graphicx}
+
+\pagestyle{empty} \setlength{\parindent}{0mm}
+
+\addtolength{\topmargin}{-0.5in} \setlength{\textheight}{9in}
+\addtolength{\textwidth}{1in} \addtolength{\oddsidemargin}{-0.5in}
+
+\begin{document}
+
+\textbf{CSCI 405 Analysis of Algorithms II \hfill Spring 2016 - Fizzano}
+
+\begin{center}
+\textbf{Homework 1 \\  Due April 13}
+\end{center}
+
+Homework for this class is meant to test your ability to problem solve and express your answers in a clear and concise manner.  A rule of thumb for this class is that no solution should be longer than a page (many should be much shorter).  I'm not going to penalize you for going over one page (and please do not use tiny fonts to fit into a single page!!) but if you are taking multiple pages to describe a solution you should come talk to me about how to express yourself more efficiently. I reserve the right to lower your grade on an assignment if many of your solutions are overly verbose. In short, sometimes you need a page and a half and that's ok but it shouldn't become the norm. \\
+
+Homework solutions should not take me through all of your failed attempts before you came across your final solution. Each solution should be structured as such:  (1) short overview of your final solution, (2) a more detailed description of your solution that possibly includes pseudocode, (3) justification of the correctness of your solution, (4) justification of the running time of your solution.  This structure will not apply to all problems (such as \#1 on this homework because it's simply a proof of a fact) but it does apply to problems that ask you to create an algorithm (such as \#2,3,4 on this homework).  \\
+
+I will say this again and again throughout the quarter and I will start now:  \textbf{it is critical that you start homework early}.  Over the years of teaching this class I would say that starting early is one of the biggest indicators of success.  In an ideal world you would read over the problems on the day you receive them and try to understand the problem statements.  Then you would work on those problems and get an idea how to solve most of the problems by the end of the first week or so.  Spend the rest of the time writing up your solutions, proofreading your work and editing it to make it crystal clear. \\
+
+
+\begin{enumerate}[1.]
+
+\item 
+
+\begin{enumerate}
+\item Use induction to show that for any tree of $n$ nodes, the sum of the degrees of those nodes sum to $2n-2$.
+
+\item Let $d_1 + d_2 + \ldots + d_n = 2n - 2$ (such that $n \geq 2$, each $d_i > 0$ and each $d_i$ is an integer).  
+
+Prove that there exists a tree with $n$ vertices whose degrees are exactly $d_1, d_2, \ldots, d_n$.
+
+Note that this is the inverse of part (a).  You're starting with a collection of $n$ positive integers, $d_1, \ldots, d_n$, that meets the constraints given above and you are to show that there exists a tree whose degrees correspond to the $n$ numbers given.  
+\end{enumerate}
+
+
+\item  Suppose you are given two sets of integers, $A$ and $B$, where $|A| = m$ and $|B| = n$ and you want to determine whether the two sets are disjoint.  Trivially, you could just consider each element of $A$ one at a time and then do a linear search for that element in $B$ giving you an $O(mn)$ algorithm.  
+
+I want you to determine whether the two sets are disjoint in a more efficient manner.  Be sure to consider the case when one set is substantially larger than the other. 
+
+Justify that your algorithm is correct and express the running time and the space used by your algorithm in terms of $m$ and $n$. 
+
+
+\item  Suppose you have $n$ ``people'', some of whom are aliens and the rest are humans.  However you can't tell them apart by looking at them.  Your job is to determine with certainty which people are humans and which are aliens.  Read on.   
+
+To determine who's who you may assume that aliens can always tell whether other people are aliens or humans when they meet them one-on-one and they never lie.  Humans can't tell the difference and just guess randomly whether the other person is human or alien when they meet them one-on-one.  Thus, if two people meet and each says the other is an alien then there are two possible truths -- either both are aliens or both are humans.  If two people meet and each says the other is a human then the truth is that at least one of them is a human.  If two people meet and the first says the second is human and the second says the first is alien then the truth is that at least one is human (the symmetric case to this last one results in the same truth).  
+
+Read the paragraph above multiple times until you are sure you understand things.  At this point you should be able to argue that if there are strictly more than $n/2$ humans you won't be able to determine with certainty which people are human and which are aliens.  Convince yourself of this fact (you don't have to turn in this argument though).  
+
+\begin{enumerate} 
+\item  Assume that strictly more than $n/2$ of the people are aliens.  Show that you can arrange $\lfloor \frac{n}{2} \rfloor$ one-on-one meetings to reduce the problem to one of nearly half the size.  Justify your answer.  
+\item  Give an algorithm that shows how the aliens and humans can be correctly identified with $O(n)$ one-on-one meetings. Use a recurrence and justify your approach.  
+\end{enumerate} 
+
+\item Given an array of $n$ positive integers you should create an algorithm that finds the pair of indicies, $i$ and $j$, such that:  
+
+\begin{enumerate}
+\item $A[j] - A[i]$ is maximized over all $i$ and $j$.  
+\item $A[j] - A[i]$ is maximized over all $i$ and $j$ with the extra stipulation that $j \geq i$.  You \textbf{must} use a divide and conquer approach to this problem and write a recurrence that expresses the running time.  
+\end{enumerate}
+
+Be sure to clearly analyze the running time and justify the correctness of each algorithm. 
+
+\end{enumerate}
+
+
+\end{document}
