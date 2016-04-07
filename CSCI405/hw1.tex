@@ -30,6 +30,12 @@ I will say this again and again throughout the quarter and I will start now:  \t
 \begin{enumerate}
 \item Use induction to show that for any tree of $n$ nodes, the sum of the degrees of those nodes sum to $2n-2$.
 
+	Let's begin with the trivial case, a tree with exactly 1 node.  This one node would obviously have degree 0, since that node would not be connected to any otherr node, and none would connect to it. $n=1, 2(1)-2=0$.
+
+	Now let's add  one more node to this tree.  This node must connect to our original node, since trees are by definition graphs.  In order for this new node to connect to the original node, the original node must also be able to access our new node, since trees are undirected graphs.  Since each node can access one other node, they each have a degree of 1, summing to 2. $n=2, 2(2)-2=2$.
+
+	Adding another node, we must connect it to exactly one existing node, it doesn't especially matter which, but it must be exactly 1.  Since our two nodes are connected, if we connected this new node to both a cycle would form, and by definition trees are acyclic. By inserting a node in this manner we have created a node of degree 1, but we have also increased the degree of the "parent" by 1.  "Parent" is not neccesarily the best term, since it implies a more rigorous structure than is imposed by a free tree, although the math is valid in either case, and parent adequately conveys the meaning of "existing node in the tree, to which the new node is attached". 
+
 \item Let $d_1 + d_2 + \ldots + d_n = 2n - 2$ (such that $n \geq 2$, each $d_i > 0$ and each $d_i$ is an integer).  
 
 Prove that there exists a tree with $n$ vertices whose degrees are exactly $d_1, d_2, \ldots, d_n$.
